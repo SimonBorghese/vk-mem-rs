@@ -192,7 +192,7 @@ impl Allocator {
 
     /// Frees memory previously allocated using `Allocator::allocate_memory`,
     /// `Allocator::allocate_memory_for_buffer`, or `Allocator::allocate_memory_for_image`.
-    pub unsafe fn free_memory(&self, allocation: &mut Allocation) {
+    pub unsafe fn free_memory(&self, allocation: &Allocation) {
         ffi::vmaFreeMemory(self.internal, allocation.0);
     }
 
