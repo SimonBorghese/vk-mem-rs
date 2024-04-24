@@ -15,6 +15,7 @@ use ash::vk;
 use std::mem;
 
 /// Main allocator object
+#[derive(Clone, Copy)]
 pub struct Allocator {
     /// Pointer to internal VmaAllocator instance
     internal: ffi::VmaAllocator,
