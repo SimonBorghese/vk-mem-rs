@@ -462,7 +462,7 @@ impl Allocator {
     /// ```
     ///
     /// It it safe to pass null as `buffer` and/or `allocation`.
-    pub unsafe fn destroy_buffer(&self, buffer: vk::Buffer, allocation: &mut Allocation) {
+    pub unsafe fn destroy_buffer(&self, buffer: vk::Buffer, allocation: &Allocation) {
         ffi::vmaDestroyBuffer(self.internal, buffer, allocation.0);
     }
 
@@ -476,7 +476,7 @@ impl Allocator {
     /// ```
     ///
     /// It it safe to pass null as `image` and/or `allocation`.
-    pub unsafe fn destroy_image(&self, image: vk::Image, allocation: &mut Allocation) {
+    pub unsafe fn destroy_image(&self, image: vk::Image, allocation: &Allocation) {
         ffi::vmaDestroyImage(self.internal, image, allocation.0);
     }
     /// Flushes memory of given set of allocations."]
