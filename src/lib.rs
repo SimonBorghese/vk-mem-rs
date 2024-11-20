@@ -565,8 +565,8 @@ impl Allocator {
 }
 
 /// Custom `Drop` implementation to clean up internal allocation instance
-impl Drop for Allocator {
-    fn drop(&mut self) {
+impl Allocator {
+    pub fn free(&mut self) {
         unsafe {
             ffi::vmaDestroyAllocator(self.internal);
             self.internal = std::ptr::null_mut();
